@@ -1,29 +1,31 @@
 prices=[]
 n=gets.chomp.to_i
-i=0
+j=0
 n.times do
-    prices[i]=gets.chomp.to_i
-    i+=1
+    prices[j]=gets.chomp.to_i
+    j=j+1
 end
 
+# prices.each{|x| puts x}
+
 mn=prices[0]
-a=-1
-b=-1
-mni=-1
+buy_day=-1
+sell_day=-1
+mn_ind=0
 profit=0
 
-for i in 1...n-1 
-if prices[i]-mn > profit
+for i in 1..n-1 
+    if prices[i]-mn > profit
         profit=prices[i]-mn
-        a=mni
-        b=i
+        buy_day=mn_ind
+        sell_day=i
         
     end
     if prices[i]<mn
         mn=prices[i]
-        mni=i
+        mn_ind=i
     end
 end
 
-puts("#{a} and  #{b}")
+puts("#{buy_day} and  #{sell_day}")
 
